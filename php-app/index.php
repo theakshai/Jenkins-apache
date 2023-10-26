@@ -4,7 +4,7 @@
 
 //$conn = new mysqli("db", "root", $pass);
 
-echo "Hello from php"
+echo "Hello from php";
 //if ($conn->connect_error) {
  //   echo "Unable to connect";
 //} else {
