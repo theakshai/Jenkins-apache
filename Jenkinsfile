@@ -10,7 +10,7 @@ pipeline {
             steps {
               script{
                   echo "Building Docker Image"
-                  sh "docker-compose build"
+                  sh "sudo docker-compose build"
                 }
             }
         }
@@ -18,7 +18,7 @@ pipeline {
             steps {
               script{
                   echo "Docker Image deployed successfully"
-                  sh "docker-compose up -d"
+                  sh "sudo docker-compose up -d"
                 }
             }
         }
