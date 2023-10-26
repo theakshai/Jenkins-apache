@@ -1,0 +1,55 @@
+version: '3'
+services:
+  web:
+    build: ./
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    volumes:
+      - apache-volume:/var/www/html
+    secrets:
+      - secret
+  db:
+    image: mysql
+    secrets:
+      - secret
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/secret
+    volumes:
+      - db-volume:/var/lib/mysql/
+volumes:
+  apache-volume:
+  db-volume:
+secrets:
+  secret:
+    file: ./secrets.txt
+
+
+
+  # error:::
+      #version: '3'
+      #services:
+      #web:
+      #build:
+      #context: .
+      #dockerfile: Dockerfile
+      #ports:
+      #- "80:80"
+      #volumes:
+      #- apache-data:/var/www/html
+      #db:
+      #image: mysql:5.7
+      #environment:
+      #MYSQL_ROOT_PASSWORD: akshai
+      #MYSQL_DATABASE: akshai_db
+      #MYSQL_USER: akshai
+      #MYSQL_PASSWORD: akshai
+      #volumes:
+      #- mysql-data:/var/lib/mysql
+
+      #volumes:
+      #mysql-data:
+    #apache-data:
