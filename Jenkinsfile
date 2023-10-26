@@ -18,7 +18,7 @@ pipeline {
             steps {
               script{
                   echo "Docker Image deployed successfully"
-                  sh "sudo docker-compose up -d"
+                  sh "sudo docker-compose up"
                 }
             }
         }
