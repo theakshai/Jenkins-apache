@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
               script{
-                  sh "Building Docker Image"
+                  echo "Building Docker Image"
                   sh "docker-compose build"
                 }
             }
@@ -17,6 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
               script{
+                  echo "Docker Image deployed successfully"
                   sh "docker-compose up -d"
                 }
             }
